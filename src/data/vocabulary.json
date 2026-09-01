@@ -1,0 +1,68 @@
+{
+  "1": {
+    "title": "Magic Forest",
+    "words": [
+      { "word": "cat", "translation": "gato", "emoji": "🐱", "image": "/images/animals/cat.png", "audio": "/audio/forest/cat.mp3" },
+      { "word": "dog", "translation": "perro", "emoji": "🐶", "image": "/images/animals/dog.png", "audio": "/audio/forest/dog.mp3" },
+      { "word": "bird", "translation": "pájaro", "emoji": "🐦", "image": "/images/animals/bird.png", "audio": "/audio/forest/bird.mp3" },
+      { "word": "fish", "translation": "pez", "emoji": "🐟", "image": "/images/animals/fish.png", "audio": "/audio/forest/fish.mp3" },
+      { "word": "rabbit", "translation": "conejo", "emoji": "🐰", "image": "/images/animals/rabbit.png", "audio": "/audio/forest/rabbit.mp3" },
+      { "word": "horse", "translation": "caballo", "emoji": "🐴", "image": "/images/animals/horse.png", "audio": "/audio/forest/horse.mp3" }
+    ]
+  },
+  "2": {
+    "title": "Magic School",
+    "words": [
+      { "word": "book", "translation": "libro", "emoji": "📖", "image": "/images/school/book.png", "audio": "/audio/school/book.mp3" },
+      { "word": "pencil", "translation": "lápiz", "emoji": "✏️", "image": "/images/school/pencil.png", "audio": "/audio/school/pencil.mp3" },
+      { "word": "backpack", "translation": "mochila", "emoji": "🎒", "image": "/images/school/backpack.png", "audio": "/audio/school/backpack.mp3" },
+      { "word": "ruler", "translation": "regla", "emoji": "📏", "image": "/images/school/ruler.png", "audio": "/audio/school/ruler.mp3" },
+      { "word": "teacher", "translation": "maestra", "emoji": "👩‍🏫", "image": "/images/school/teacher.png", "audio": "/audio/school/teacher.mp3" },
+      { "word": "chair", "translation": "silla", "emoji": "🪑", "image": "/images/school/chair.png", "audio": "/audio/school/chair.mp3" }
+    ]
+  },
+  "3": {
+    "title": "Magic Home",
+    "words": [
+      { "word": "bed", "translation": "cama", "emoji": "🛏️", "image": "/images/home/bed.png", "audio": "/audio/home/bed.mp3" },
+      { "word": "door", "translation": "puerta", "emoji": "🚪", "image": "/images/home/door.png", "audio": "/audio/home/door.mp3" },
+      { "word": "window", "translation": "ventana", "emoji": "🪟", "image": "/images/home/window.png", "audio": "/audio/home/window.mp3" },
+      { "word": "table", "translation": "mesa", "emoji": "🍽️", "image": "/images/home/table.png", "audio": "/audio/home/table.mp3" },
+      { "word": "kitchen", "translation": "cocina", "emoji": "🍳", "image": "/images/home/kitchen.png", "audio": "/audio/home/kitchen.mp3" },
+      { "word": "lamp", "translation": "lámpara", "emoji": "💡", "image": "/images/home/lamp.png", "audio": "/audio/home/lamp.mp3" }
+    ]
+  },
+  "4": {
+    "title": "Magic Beach",
+    "words": [
+      { "word": "sun", "translation": "sol", "emoji": "☀️", "image": "/images/beach/sun.png", "audio": "/audio/beach/sun.mp3" },
+      { "word": "sea", "translation": "mar", "emoji": "🌊", "image": "/images/beach/sea.png", "audio": "/audio/beach/sea.mp3" },
+      { "word": "sand", "translation": "arena", "emoji": "🏖️", "image": "/images/beach/sand.png", "audio": "/audio/beach/sand.mp3" },
+      { "word": "shell", "translation": "concha", "emoji": "🐚", "image": "/images/beach/shell.png", "audio": "/audio/beach/shell.mp3" },
+      { "word": "boat", "translation": "bote", "emoji": "⛵", "image": "/images/beach/boat.png", "audio": "/audio/beach/boat.mp3" },
+      { "word": "crab", "translation": "cangrejo", "emoji": "🦀", "image": "/images/beach/crab.png", "audio": "/audio/beach/crab.mp3" }
+    ]
+  },
+  "5": {
+    "title": "Magic Castle",
+    "words": [
+      { "word": "king", "translation": "rey", "emoji": "🤴", "image": "/images/castle/king.png", "audio": "/audio/castle/king.mp3" },
+      { "word": "queen", "translation": "reina", "emoji": "👸", "image": "/images/castle/queen.png", "audio": "/audio/castle/queen.mp3" },
+      { "word": "dragon", "translation": "dragón", "emoji": "🐉", "image": "/images/castle/dragon.png", "audio": "/audio/castle/dragon.mp3" },
+      { "word": "crown", "translation": "corona", "emoji": "👑", "image": "/images/castle/crown.png", "audio": "/audio/castle/crown.mp3" },
+      { "word": "tower", "translation": "torre", "emoji": "🏯", "image": "/images/castle/tower.png", "audio": "/audio/castle/tower.mp3" },
+      { "word": "knight", "translation": "caballero", "emoji": "⚔️", "image": "/images/castle/knight.png", "audio": "/audio/castle/knight.mp3" }
+    ]
+  },
+  "6": {
+    "title": "Magic Space",
+    "words": [
+      { "word": "star", "translation": "estrella", "emoji": "⭐", "image": "/images/space/star.png", "audio": "/audio/space/star.mp3" },
+      { "word": "moon", "translation": "luna", "emoji": "🌙", "image": "/images/space/moon.png", "audio": "/audio/space/moon.mp3" },
+      { "word": "rocket", "translation": "cohete", "emoji": "🚀", "image": "/images/space/rocket.png", "audio": "/audio/space/rocket.mp3" },
+      { "word": "planet", "translation": "planeta", "emoji": "🪐", "image": "/images/space/planet.png", "audio": "/audio/space/planet.mp3" },
+      { "word": "astronaut", "translation": "astronauta", "emoji": "👨‍🚀", "image": "/images/space/astronaut.png", "audio": "/audio/space/astronaut.mp3" },
+      { "word": "alien", "translation": "extraterrestre", "emoji": "👽", "image": "/images/space/alien.png", "audio": "/audio/space/alien.mp3" }
+    ]
+  }
+}

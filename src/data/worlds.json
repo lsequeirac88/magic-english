@@ -1,0 +1,8 @@
+[
+  { "id": "1", "title": "Magic Forest", "emoji": "🌳", "subtitle": "Palabras básicas", "color": "bg-green-200", "free": true },
+  { "id": "2", "title": "Magic School", "emoji": "🏫", "subtitle": "Escuela y objetos", "color": "bg-blue-200", "free": true },
+  { "id": "3", "title": "Magic Home", "emoji": "🏠", "subtitle": "Objetos de la casa", "color": "bg-orange-200", "free": false },
+  { "id": "4", "title": "Magic Beach", "emoji": "🏖️", "subtitle": "Palabras de la playa", "color": "bg-cyan-200", "free": false },
+  { "id": "5", "title": "Magic Castle", "emoji": "🏰", "subtitle": "Vocabulario de fantasía", "color": "bg-purple-200", "free": false },
+  { "id": "6", "title": "Magic Space", "emoji": "🚀", "subtitle": "Desafío final", "color": "bg-indigo-200", "free": false }
+]
