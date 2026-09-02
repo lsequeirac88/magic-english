@@ -1,9 +1,9 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { Suspense, useState, useMemo } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { generateSentenceQuiz } from '@/lib/vocabulary'
 
-export default function SentencesPage() {
+function SentencesContent() {
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
   const router = useRouter()
@@ -107,5 +107,13 @@ export default function SentencesPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function SentencesPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <SentencesContent />
+    </Suspense>
   )
 }

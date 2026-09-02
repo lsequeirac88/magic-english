@@ -1,8 +1,9 @@
 'use client'
+import { Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { GAMES } from '@/data/games'
 
-export default function GamesPage() {
+function GamesContent() {
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
   const router = useRouter()
@@ -32,5 +33,13 @@ export default function GamesPage() {
         ))}
       </div>
     </div>
+  )
+}
+
+export default function GamesPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <GamesContent />
+    </Suspense>
   )
 }

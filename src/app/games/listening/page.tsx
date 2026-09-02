@@ -1,10 +1,10 @@
 'use client'
-import { useState, useMemo, useEffect } from 'react'
+import { Suspense, useState, useMemo, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Howl } from 'howler'
 import { generateQuiz } from '@/lib/vocabulary'
 
-export default function ListeningPage() {
+function ListeningContent() {
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
   const router = useRouter()
@@ -120,5 +120,13 @@ export default function ListeningPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ListeningPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <ListeningContent />
+    </Suspense>
   )
 }

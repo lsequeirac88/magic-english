@@ -1,12 +1,12 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { supabase } from '@/lib/supabase'
 import worlds from '@/data/worlds.json'
 import Character from '@/components/Character'
 
-export default function WorldSelectPage() {
+function WorldSelectContent() {
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
   const router = useRouter()
@@ -43,7 +43,7 @@ export default function WorldSelectPage() {
     router.push(`/world/${world.id}?child=${childId}`)
   }
 
-    return (
+  return (
     <div className="min-h-screen bg-sky-50 p-6">
       <button onClick={() => router.push('/dashboard')} className="mb-4 text-sm">
         ← Volver al panel de padres
@@ -77,5 +77,13 @@ export default function WorldSelectPage() {
         })}
       </div>
     </div>
+  )
+}
+
+export default function WorldSelectPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <WorldSelectContent />
+    </Suspense>
   )
 }

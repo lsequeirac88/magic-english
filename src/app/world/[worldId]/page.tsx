@@ -1,11 +1,12 @@
 'use client'
+import { Suspense } from 'react'
 import { useParams, useSearchParams, useRouter } from 'next/navigation'
 import { getWorldWords, getWorldTitle } from '@/lib/vocabulary'
 import worlds from '@/data/worlds.json'
 import ActivityCard from '@/components/ActivityCard'
 import Character from '@/components/Character'
 
-export default function WorldPage() {
+function WorldContent() {
   const { worldId } = useParams<{ worldId: string }>()
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
@@ -39,5 +40,13 @@ export default function WorldPage() {
         ))}
       </div>
     </div>
+  )
+}
+
+export default function WorldPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <WorldContent />
+    </Suspense>
   )
 }

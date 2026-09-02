@@ -1,12 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { useParams, useSearchParams, useRouter } from 'next/navigation'
 import { Howl } from 'howler'
 import { getWorldWords, getActivityOptions } from '@/lib/vocabulary'
 import Character from '@/components/Character'
 import { useMascot } from '@/hooks/useMascot'
 
-export default function ActivityPage() {
+function ActivityContent() {
   const { activityId } = useParams<{ activityId: string }>()
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
@@ -25,6 +25,7 @@ export default function ActivityPage() {
 
   useEffect(() => {
     mascot.say('Escucha y toca la imagen correcta')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current])
 
   const playSound = (src: string) => new Howl({ src: [src] }).play()
@@ -65,7 +66,7 @@ export default function ActivityPage() {
       <Character mood={mascot.mood} message={mascot.message} />
 
       <button onClick={() => playSound(target.audio)}>
-        <img src={target.image} className="w-40 h-40" alt={target.word} />
+        <div className="text-8xl">{target.emoji}</div>
         <p className="text-lg mt-2 text-center">🔊 Escucha</p>
       </button>
 
@@ -76,10 +77,18 @@ export default function ActivityPage() {
             onClick={() => handleAnswer(o.word)}
             className="bg-white rounded-xl p-3 shadow active:scale-95 transition"
           >
-            <img src={o.image} className="w-20 h-20" alt={o.word} />
+            <div className="text-4xl">{o.emoji}</div>
           </button>
         ))}
       </div>
     </div>
+  )
+}
+
+export default function ActivityPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <ActivityContent />
+    </Suspense>
   )
 }

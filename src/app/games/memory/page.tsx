@@ -1,8 +1,7 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { Suspense, useState, useMemo, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { getAllWords } from '@/lib/vocabulary'
-import { useRef } from 'react'
 
 type Card = {
   id: string
@@ -24,7 +23,7 @@ function buildCards(pairCount = 8): Card[] {
   return cards.sort(() => 0.5 - Math.random())
 }
 
-export default function MemoryGamePage() {
+function MemoryGameContent() {
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
   const router = useRouter()
@@ -73,10 +72,10 @@ export default function MemoryGamePage() {
     setFlipped([])
     setMoves(0)
     setBusy(false)
+    saved.current = false
   }
 
-  if (finished) {
-    if (finished && !saved.current) {
+  if (finished && !saved.current) {
     saved.current = true
     const stars = moves <= 10 ? 3 : moves <= 14 ? 2 : 1
     fetch('/api/game-progress', {
@@ -84,17 +83,22 @@ export default function MemoryGamePage() {
       body: JSON.stringify({ childId, gameId: 'memory', score: stars, total: 3 }),
     })
   }
+
+  if (finished) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-purple-50 flex flex-col items-center justify-center p-6 text-center gap-4">
         <div className="text-6xl">🧩🎉</div>
         <h1 className="text-3xl font-extrabold">¡Completaste el juego!</h1>
         <p className="text-xl">Movimientos: {moves}</p>
-        <div className="flex gap-3 mt-4">
+        <div className="flex gap-3 mt-4 flex-wrap justify-center">
           <button onClick={restart} className="bg-purple-600 text-white rounded-xl px-6 py-3 font-bold">
             Jugar de nuevo
           </button>
           <button onClick={closeGame} className="bg-white border border-gray-200 rounded-xl px-6 py-3 font-bold">
             Volver a juegos
+          </button>
+          <button onClick={() => router.push('/dashboard')} className="bg-white border border-gray-200 rounded-xl px-6 py-3 font-bold">
+            🏠 Dashboard
           </button>
         </div>
       </div>
@@ -105,7 +109,10 @@ export default function MemoryGamePage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-purple-50 p-6">
       <div className="max-w-md mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <button onClick={closeGame} className="text-gray-400 hover:text-gray-700 text-xl">✕</button>
+          <div className="flex items-center gap-3">
+            <button onClick={() => router.push('/dashboard')} className="text-gray-400 hover:text-gray-700 text-lg" title="Volver al panel de padres">🏠</button>
+            <button onClick={closeGame} className="text-gray-400 hover:text-gray-700 text-xl">✕</button>
+          </div>
           <h1 className="font-bold text-lg">🧩 Memory Game</h1>
           <span className="text-sm font-semibold text-gray-500">Movimientos: {moves}</span>
         </div>
@@ -132,5 +139,13 @@ export default function MemoryGamePage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function MemoryGamePage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <MemoryGameContent />
+    </Suspense>
   )
 }

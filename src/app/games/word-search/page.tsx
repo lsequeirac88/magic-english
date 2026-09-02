@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo, useRef } from 'react'
+import { Suspense, useState, useMemo, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { getAllWords } from '@/lib/vocabulary'
 
@@ -81,7 +81,7 @@ function pathBetween(start: Cell, end: Cell): Cell[] | null {
   return null
 }
 
-export default function WordSearchPage() {
+function WordSearchContent() {
   const searchParams = useSearchParams()
   const childId = searchParams.get('child')
   const router = useRouter()
@@ -214,5 +214,13 @@ export default function WordSearchPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function WordSearchPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Cargando...</div>}>
+      <WordSearchContent />
+    </Suspense>
   )
 }
